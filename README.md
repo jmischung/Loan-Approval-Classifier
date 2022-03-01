@@ -1,31 +1,37 @@
-# Module 12 Report Template
+# Creditworthiness Classifier - Analysis of Logistic Regression Models
+
+<br>
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+The purpose of this analysis is to determine if the assessment of the creditworthiness of borrowers on peer-to-peer lending platforms can be automated using a classification model. The model was trained with historical data comprising a target of loan default status (75,036 compliant, 2,500 non-compliant) and the following features:  
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+  * Loan Size
+  * Interest Rate
+  * Borrower Income
+  * Debt-to-Income Ratio
+  * Number of Accounts
+  * Derogatory Marks
+  * Total Debt
+
+The analysis followed the standard convention of model-fit-predict-evaluate. Logistic Regression is used as the baseline. The model is trained with the raw data and balanced data using random oversampling to address the imbalance in the target variable.
 
 ## Results
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
+The models are evaluated using accuracy, precision, and recall. The precision and recall values represent the label of interest, that is, non-compliant loans.
 
-* Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
+* Logistic Regression - Imbalanced Training Set:
+  * Accuracy: 0.94
+  * Precision: 0.84
+  * Recall: 0.89
 
 
 
-* Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+* Logistic Regression - Balanced Training Set:
+  * Accuracy: 0.99
+  * Precision: 0.84
+  * Recall: 0.99
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+Both Logistic Regression models performed quite well. Training the Logistic Regression model with the randomly oversampled dataset increased both accuracy and recall without any sacrifice in precision. Future work to develop a better model should use the Logistic Regression model trained with the balanced dataset as the baseline. The same model is also recommended if deploying a model in an alpha-testing phase at this moment.
